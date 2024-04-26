@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Do Browser Extension",
+  "version": "0.0.1",
+  "description": "A browser extension that shows your date of birth and age",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}

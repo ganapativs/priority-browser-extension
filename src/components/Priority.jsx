@@ -39,7 +39,7 @@ function Priority() {
           </Box>
           <Flex direction="row" gap="5" align="center" justify="center">
             <Badge size="3" color="amber" variant="outline">
-              ⚡️ High Priority
+              ⚡️ Top Priority
             </Badge>
             <Button
               color="gray"
@@ -48,23 +48,14 @@ function Priority() {
               onClick={editPriority}
               className="priority--edit"
             >
-              Change top priority task
+              Change priority task
             </Button>
           </Flex>
         </Box>
       ) : (
-        <Box
-          p="5"
-          align="left"
-          className="fadeIn"
-          style={{
-            background: "var(--gold-a2)",
-            border: "2px solid var(--gold-a3)",
-          }}
-          minWidth={1000}
-        >
+        <Box p="2" align="left" className="fadeIn" minWidth={1000}>
           <Heading mb="6" size="8" color="gold" weight="light" wrap="pretty">
-            ⚡️ What is your top priority task right now?
+            ⚡️ What is your priority task right now?
           </Heading>
           <Container size="1" maxWidth="800px" align="center">
             <Flex

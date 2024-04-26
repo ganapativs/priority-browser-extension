@@ -93,12 +93,12 @@ function Age() {
               <Text
                 weight="bold"
                 size="9"
+                color="lime"
                 className="font-size-10 line-height-10"
-                style={{ color: "var(--plum-12)" }}
               >
                 {age.year.toString().padStart(2, "0")}
               </Text>{" "}
-              <Text weight="light" size="8" style={{ color: "var(--plum-12)" }}>
+              <Text weight="light" size="8" color="lime">
                 .{age.milliseconds.toString().padStart(2, "0")}
               </Text>
             </Box>
@@ -115,7 +115,7 @@ function Age() {
                 <Callout.Text>Invalid date of birth</Callout.Text>
               </Callout.Root>
             ) : (
-              <Callout.Root size="1" variant="surface" mb="4" color="plum">
+              <Callout.Root size="1" variant="surface" mb="4" color="lime">
                 <Callout.Icon>
                   <InfoCircledIcon />
                 </Callout.Icon>
@@ -128,7 +128,7 @@ function Age() {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="plum"
+                  color="lime"
                   size="3"
                   placeholder="Day"
                   type="number"
@@ -152,7 +152,7 @@ function Age() {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="plum"
+                  color="lime"
                   size="3"
                   placeholder="Month"
                   type="number"
@@ -176,7 +176,7 @@ function Age() {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="plum"
+                  color="lime"
                   size="3"
                   placeholder="Year"
                   type="number"
@@ -205,7 +205,7 @@ function Age() {
                 <Button
                   variant="solid"
                   size="3"
-                  color="plum"
+                  color="lime"
                   disabled={
                     !inputFields.day || !inputFields.month || !inputFields.year
                   }
