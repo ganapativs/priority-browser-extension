@@ -11,7 +11,7 @@ function App() {
   const [theme, setTheme] = useState(() => {
     const stored = localStorage.getItem("theme");
     if (stored) return stored;
-    return null;
+    return "dark";
   });
 
   function onThemeChange(theme) {

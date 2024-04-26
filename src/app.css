@@ -46,4 +46,5 @@
   padding: var(--space-4);
   color: var(--gray-1);
   font-size: var(--font-size-4);
+  background: var(--color-background);
 }
