@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-size-10 {
+  font-size: calc(90px * var(--scaling));
+}
+
+.line-height-10 {
+  line-height: calc(90px * var(--scaling));
+}
