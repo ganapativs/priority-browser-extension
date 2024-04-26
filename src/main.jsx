@@ -9,7 +9,6 @@ import "./index.css";
  * - Logo
  * - Add favicon
  * - Add icons
- * - Add google analytics
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

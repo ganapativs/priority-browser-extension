@@ -30,30 +30,26 @@ const Footer = ({ theme, onThemeChange }) => {
           </Tooltip>
         </Flex>
         <Separator orientation="vertical" color="gray" size="1" />
-        <Text size="2" color="gray">
-          <Link
-            href="https://github.com/ganapativs/priority-browser-extension"
-            target="_blank"
-            rel="noopener noreferrer"
-            color="gray"
-            size="2"
-          >
-            <Flex align="center" gap="1">
-              <GitHubLogoIcon />
-              Github
-            </Flex>
-          </Link>
-        </Text>
+        <Link
+          href="https://github.com/ganapativs/priority-browser-extension"
+          target="_blank"
+          rel="noopener noreferrer"
+          size="2"
+        >
+          <Flex align="center" gap="1">
+            <GitHubLogoIcon />
+            Github
+          </Flex>
+        </Link>
         <Separator orientation="vertical" color="gray" size="1" />
-        <Text size="2" color="gray">
-          <Link
-            href="https://x.com/ganapativs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @ganapativs
-          </Link>
-        </Text>
+        <Link
+          href="https://x.com/ganapativs"
+          target="_blank"
+          rel="noopener noreferrer"
+          size="2"
+        >
+          @ganapativs
+        </Link>
       </Flex>
     </footer>
   );
