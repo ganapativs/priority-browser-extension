@@ -55,7 +55,7 @@ function Priority() {
       ) : (
         <Box
           p="5"
-          align="center"
+          align="left"
           className="fadeIn"
           style={{
             background: "var(--gold-a2)",
