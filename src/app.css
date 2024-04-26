@@ -16,8 +16,8 @@
   transition: opacity 0.25s ease-in;
 }
 
-.priority:hover .priority--edit,
-.priority:focus .priority--edit,
+.priority .priority--edit:hover,
+.priority .priority--edit:focus,
 .priority .priority--edit:focus-visible {
   opacity: 1;
 }
@@ -47,4 +47,12 @@
   color: var(--gray-1);
   font-size: var(--font-size-4);
   background: var(--color-background);
+  opacity: 0.3;
+  transition: opacity 0.25s ease-in;
+}
+
+.footer:hover,
+.footer:focus,
+.footer:focus-visible {
+  opacity: 1;
 }

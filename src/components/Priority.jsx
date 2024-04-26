@@ -38,24 +38,24 @@ function Priority() {
             </Text>
           </Box>
           <Flex direction="row" gap="5" align="center" justify="center">
-            <Badge size="3" color="amber" variant="outline">
-              ⚡️ Top Priority
+            <Badge size="3" color="amber" variant="soft">
+              ⚡️ Priority
             </Badge>
             <Button
               color="gray"
-              variant="ghost"
-              size="3"
+              variant="surface"
+              size="2"
               onClick={editPriority}
               className="priority--edit"
             >
-              Change priority task
+              Change priority
             </Button>
           </Flex>
         </Box>
       ) : (
         <Box p="2" align="left" className="fadeIn" minWidth={1000}>
           <Heading mb="6" size="8" color="gold" weight="light" wrap="pretty">
-            ⚡️ What is your priority task right now?
+            ⚡️ What is your top priority right now?
           </Heading>
           <Container size="1" maxWidth="800px" align="center">
             <Flex

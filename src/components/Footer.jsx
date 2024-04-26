@@ -31,7 +31,7 @@ const Footer = ({ theme, onThemeChange }) => {
         </Flex>
         <Separator orientation="vertical" color="gray" size="1" />
         <Link
-          href="https://github.com/ganapativs/priority-browser-extension"
+          href="https://github.com/ganapativs/priority-browser-extension?ref=priority-browser-extension"
           target="_blank"
           rel="noopener noreferrer"
           size="2"
@@ -43,7 +43,7 @@ const Footer = ({ theme, onThemeChange }) => {
         </Link>
         <Separator orientation="vertical" color="gray" size="1" />
         <Link
-          href="https://x.com/ganapativs"
+          href="https://x.com/ganapativs?ref=priority-browser-extension"
           target="_blank"
           rel="noopener noreferrer"
           size="2"

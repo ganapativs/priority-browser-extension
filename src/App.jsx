@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Theme
-      accentColor="teal"
+      accentColor="gold"
       grayColor="slate"
       radius="full"
       appearance={theme}
