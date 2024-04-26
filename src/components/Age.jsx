@@ -1,13 +1,5 @@
-import {
-  Badge,
-  Box,
-  Button,
-  Callout,
-  Flex,
-  Text,
-  TextField,
-} from "@radix-ui/themes";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { Box, Button, Callout, Flex, Text, TextField } from "@radix-ui/themes";
+import { InfoCircledIcon, CrossCircledIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { useInterval } from "./hooks";
 
@@ -93,38 +85,37 @@ function Age() {
   }
 
   return (
-    <Box mt="4" maxWidth="400px">
-      <Box>
-        <Text
-          weight="bold"
-          size="5"
-          color="gray"
-          style={{ opacity: dob ? 0.5 : 1 }}
-        >
-          AGE
-        </Text>
-        {dob ? (
-          <Box py="0">
-            {age ? (
-              <>
-                <Text
-                  weight="bold"
-                  size="9"
-                  color="gray"
-                  className="font-size-10 line-height-10"
-                >
-                  {age.year.toString().padStart(2, "0")}
-                </Text>{" "}
-                <Text weight="light" size="8" color="lime">
-                  .{age.milliseconds.toString().padStart(2, "0")}
-                </Text>
-              </>
-            ) : null}
-          </Box>
-        ) : (
-          <Box mt="4">
-            <>
-              <Callout.Root size="1" variant="surface" mb="4">
+    <Box>
+      {dob ? (
+        <Box py="3" className="fadeIn" style={{ minWidth: 300 }}>
+          {age ? (
+            <Box className="schibsted-grotesk">
+              <Text
+                weight="bold"
+                size="9"
+                className="font-size-10 line-height-10"
+                style={{ color: "var(--plum-12)" }}
+              >
+                {age.year.toString().padStart(2, "0")}
+              </Text>{" "}
+              <Text weight="light" size="8" style={{ color: "var(--plum-12)" }}>
+                .{age.milliseconds.toString().padStart(2, "0")}
+              </Text>
+            </Box>
+          ) : null}
+        </Box>
+      ) : (
+        <Box style={{ minHeight: 114 }}>
+          <>
+            {hasError ? (
+              <Callout.Root size="1" variant="surface" mb="4" color="orange">
+                <Callout.Icon>
+                  <CrossCircledIcon />
+                </Callout.Icon>
+                <Callout.Text>Invalid date of birth</Callout.Text>
+              </Callout.Root>
+            ) : (
+              <Callout.Root size="1" variant="surface" mb="4" color="plum">
                 <Callout.Icon>
                   <InfoCircledIcon />
                 </Callout.Icon>
@@ -132,100 +123,105 @@ function Age() {
                   Enter your date of birth to calculate the age
                 </Callout.Text>
               </Callout.Root>
-              <Flex direction="row" gap="4" mb="4">
-                <Box>
-                  <TextField.Root
-                    size="3"
-                    placeholder="Day"
-                    type="number"
-                    min="1"
-                    max="31"
-                    defaultValue={""}
-                    onInput={(e) => {
-                      validateInputLength(e, 2);
-                      validateInputMaxValue(e, 31);
-                    }}
-                    onChange={(e) => {
-                      setInputFields((prev) => ({
-                        ...prev,
-                        day: e.target.value ? parseInt(e.target.value) : null,
-                      }));
-                      setHasError(false);
-                    }}
-                    style={{ width: "5rem", textAlign: "center" }}
-                  />
-                </Box>
-                <Box>
-                  <TextField.Root
-                    size="3"
-                    placeholder="Month"
-                    type="number"
-                    min="1"
-                    max="12"
-                    defaultValue={""}
-                    onInput={(e) => {
-                      validateInputLength(e, 2);
-                      validateInputMaxValue(e, 12);
-                    }}
-                    onChange={(e) => {
-                      setInputFields((prev) => ({
-                        ...prev,
-                        month: e.target.value ? parseInt(e.target.value) : null,
-                      }));
-                      setHasError(false);
-                    }}
-                    style={{ width: "5rem", textAlign: "center" }}
-                  />
-                </Box>
-                <Box>
-                  <TextField.Root
-                    size="3"
-                    placeholder="Year"
-                    type="number"
-                    min="1900"
-                    max={new Date().getFullYear().toString()}
-                    defaultValue={""}
-                    onInput={(e) => {
-                      validateInputLength(e, 4);
-                      validateInputMaxValue(e, new Date().getFullYear());
-                    }}
-                    onChange={(e) => {
-                      setInputFields((prev) => ({
-                        ...prev,
-                        year: e.target.value ? parseInt(e.target.value) : null,
-                      }));
-                      setHasError(false);
-                    }}
-                    onBlur={(e) => {
-                      if (e.target.value < e.target.min)
-                        e.target.value = new Date().getFullYear();
-                    }}
-                    style={{ width: "6rem", textAlign: "center" }}
-                  />
-                </Box>
-                <Box>
-                  <Button
-                    variant="solid"
-                    size="3"
-                    disabled={
-                      !inputFields.day ||
-                      !inputFields.month ||
-                      !inputFields.year
-                    }
-                    onClick={onSubmit}
-                  >
-                    Continue
-                  </Button>
-                </Box>
-              </Flex>
-              {hasError ? (
-                <Badge size="3" color="orange">
-                  Invalid date of birth
-                </Badge>
-              ) : null}
-            </>
-          </Box>
-        )}
+            )}
+            <Flex direction="row" gap="4" mb="3">
+              <Box>
+                <TextField.Root
+                  variant="soft"
+                  color="plum"
+                  size="3"
+                  placeholder="Day"
+                  type="number"
+                  min="1"
+                  max="31"
+                  defaultValue={""}
+                  onInput={(e) => {
+                    validateInputLength(e, 2);
+                    validateInputMaxValue(e, 31);
+                  }}
+                  onChange={(e) => {
+                    setInputFields((prev) => ({
+                      ...prev,
+                      day: e.target.value ? parseInt(e.target.value) : null,
+                    }));
+                    setHasError(false);
+                  }}
+                  style={{ width: "5rem", textAlign: "center" }}
+                />
+              </Box>
+              <Box>
+                <TextField.Root
+                  variant="soft"
+                  color="plum"
+                  size="3"
+                  placeholder="Month"
+                  type="number"
+                  min="1"
+                  max="12"
+                  defaultValue={""}
+                  onInput={(e) => {
+                    validateInputLength(e, 2);
+                    validateInputMaxValue(e, 12);
+                  }}
+                  onChange={(e) => {
+                    setInputFields((prev) => ({
+                      ...prev,
+                      month: e.target.value ? parseInt(e.target.value) : null,
+                    }));
+                    setHasError(false);
+                  }}
+                  style={{ width: "6rem", textAlign: "center" }}
+                />
+              </Box>
+              <Box>
+                <TextField.Root
+                  variant="soft"
+                  color="plum"
+                  size="3"
+                  placeholder="Year"
+                  type="number"
+                  min="1900"
+                  max={new Date().getFullYear().toString()}
+                  defaultValue={""}
+                  onInput={(e) => {
+                    validateInputLength(e, 4);
+                    validateInputMaxValue(e, new Date().getFullYear());
+                  }}
+                  onChange={(e) => {
+                    setInputFields((prev) => ({
+                      ...prev,
+                      year: e.target.value ? parseInt(e.target.value) : null,
+                    }));
+                    setHasError(false);
+                  }}
+                  onBlur={(e) => {
+                    if (e.target.value < e.target.min)
+                      e.target.value = new Date().getFullYear();
+                  }}
+                  style={{ width: "6rem", textAlign: "center" }}
+                />
+              </Box>
+              <Box>
+                <Button
+                  variant="solid"
+                  size="3"
+                  color="plum"
+                  disabled={
+                    !inputFields.day || !inputFields.month || !inputFields.year
+                  }
+                  onClick={onSubmit}
+                >
+                  Save
+                </Button>
+              </Box>
+            </Flex>
+          </>
+        </Box>
+      )}
+      <Box py="3">
+        <Text weight="light" size="8" color="gray">
+          Age
+        </Text>
       </Box>
     </Box>
   );

@@ -1,3 +1,38 @@
-.layout--right {
-  background: var(--gold-2);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.25s ease-in;
+}
+
+.priority .priority--edit {
+  opacity: 0.3;
+  transition: opacity 0.25s ease-in;
+}
+
+.priority:hover .priority--edit,
+.priority:focus .priority--edit,
+.priority .priority--edit:focus-visible {
+  opacity: 1;
+}
+
+.priority .priority--input input {
+  font-size: var(--font-size-6);
+  text-indent: var(--space-4);
+}
+
+.priority .priority--input button {
+  font-size: var(--font-size-6);
+}
+
+.cross-divider {
+  width: 1px;
+  background: var(--gold-6);
+  transform: rotate(35deg);
 }

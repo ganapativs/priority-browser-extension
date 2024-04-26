@@ -14,8 +14,8 @@ function RenderDate() {
   const formattedDate = readableDate(date);
 
   return (
-    <Box py="8">
-      <Box py="3" position={"relative"}>
+    <Box>
+      <Box py="3" position={"relative"} className="schibsted-grotesk">
         <Text
           weight="bold"
           size="9"
@@ -43,15 +43,15 @@ function RenderDate() {
       </Box>
       <Box py="3">
         <Flex gap="3" align="center">
-          <Text weight="light" size="8" color="crimson">
+          <Text weight="light" size="8" color="gray">
             {formattedTime.currentDayOfWeek},
           </Text>{" "}
           {/* <Separator orientation="vertical" size="2" /> */}
-          <Text weight="light" size="8" color="crimson">
+          <Text weight="light" size="8" color="gray">
             {formattedDate.day}
             {formattedDate.nth}
           </Text>{" "}
-          <Text weight="light" size="8" color="crimson">
+          <Text weight="light" size="8" color="gray">
             {formattedDate.month}
             {/* {formattedDate.year} */}
           </Text>

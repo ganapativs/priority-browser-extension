@@ -6,10 +6,29 @@ body {
   box-sizing: border-box;
 }
 
+.schibsted-grotesk {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.radix-themes {
+  --default-font-family: "Outfit", sans-serif;
+  --heading-font-family: "Outfit", sans-serif;
+}
+
 .font-size-10 {
   font-size: calc(90px * var(--scaling));
 }
 
 .line-height-10 {
   line-height: calc(90px * var(--scaling));
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
 }
