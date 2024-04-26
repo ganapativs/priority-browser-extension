@@ -1,4 +1,4 @@
-import { Box, Flex, Separator, Text } from "@radix-ui/themes";
+import { Box, Flex, Text } from "@radix-ui/themes";
 import { memo, useState } from "react";
 import { formatAMPM, readableDate } from "./utils";
 import { useInterval } from "./hooks";
@@ -46,7 +46,6 @@ function RenderDate() {
           <Text weight="light" size="8" color="gray">
             {formattedTime.currentDayOfWeek},
           </Text>{" "}
-          {/* <Separator orientation="vertical" size="2" /> */}
           <Text weight="light" size="8" color="gray">
             {formattedDate.day}
             {formattedDate.nth}

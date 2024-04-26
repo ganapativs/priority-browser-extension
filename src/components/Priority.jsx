@@ -60,7 +60,6 @@ function Priority() {
           style={{
             background: "var(--gold-a2)",
             border: "2px solid var(--gold-a3)",
-            // borderRadius: "var(--radius-6)",
           }}
           minWidth={1000}
         >

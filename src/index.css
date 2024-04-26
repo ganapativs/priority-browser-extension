@@ -24,11 +24,3 @@ body {
 .line-height-10 {
   line-height: calc(90px * var(--scaling));
 }
-
-.position-relative {
-  position: relative;
-}
-
-.position-absolute {
-  position: absolute;
-}
