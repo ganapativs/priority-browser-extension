@@ -7,6 +7,9 @@ import "./index.css";
 /**
  * TODO
  * - Logo
+ * analytics?
+ * bmc
+ * theme monochrome
  * - Add favicon
  * - Add icons
  */

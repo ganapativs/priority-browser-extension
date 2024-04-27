@@ -20,6 +20,31 @@ function validateDate(day, month, year) {
   return true;
 }
 
+function calculateAge(dob) {
+  if (!dob) return null;
+  var now = new Date();
+  var duration = now - dob;
+  var years = duration / 31556900000;
+  var majorMinor = years.toFixed(9).toString().split(".");
+
+  return {
+    year: majorMinor[0],
+    milliseconds: majorMinor[1].slice(0, -1),
+  };
+}
+
+const validateInputLength = (e, maxNum = 2) => {
+  if (e.target.value.length > maxNum) {
+    e.target.value = e.target.value.slice(0, maxNum);
+  }
+};
+
+function validateInputMaxValue(e, maxValue) {
+  if (e.target.value > maxValue) {
+    e.target.value = maxValue;
+  }
+}
+
 function Age() {
   const [dob, setDob] = useState(() => {
     const stored = localStorage.getItem("dob");
@@ -32,37 +57,20 @@ function Age() {
     month: null,
     year: null,
   });
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState(() => {
+    return calculateAge(dob);
+  });
+  const [animate, setAnimate] = useState(false);
 
   useInterval(() => {
-    if (!dob) return;
-    var now = new Date();
-    var duration = now - dob;
-    var years = duration / 31556900000;
-
-    var majorMinor = years.toFixed(9).toString().split(".");
-
+    const computedAge = calculateAge(dob);
     requestAnimationFrame(function () {
-      setAge({
-        year: majorMinor[0],
-        milliseconds: majorMinor[1].slice(0, -1),
-      });
+      setAge(computedAge);
     });
   }, 100);
 
-  const validateInputLength = (e, maxNum = 2) => {
-    if (e.target.value.length > maxNum) {
-      e.target.value = e.target.value.slice(0, maxNum);
-    }
-  };
-
-  function validateInputMaxValue(e, maxValue) {
-    if (e.target.value > maxValue) {
-      e.target.value = maxValue;
-    }
-  }
-
   function onSubmit() {
+    setAnimate(true);
     const isValid = validateDate(
       inputFields.day,
       inputFields.month,
@@ -87,7 +95,11 @@ function Age() {
   return (
     <Box>
       {dob ? (
-        <Box py="3" className="fadeIn" style={{ minWidth: 300 }}>
+        <Box
+          py="3"
+          className={animate ? "fadeIn" : ""}
+          style={{ minWidth: 300, minHeight: 114 }}
+        >
           {age ? (
             <Box className="schibsted-grotesk">
               <Text

@@ -33,12 +33,7 @@ function App() {
         mx="auto"
         overflow="hidden"
       >
-        <Container
-          height="100vh"
-          maxWidth="1700px"
-          minWidth="850px"
-          className="fadeIn"
-        >
+        <Container height="100vh" maxWidth="1700px" minWidth="850px">
           {/* https://stackoverflow.com/a/33148425/2627022 */}
           <Flex
             direction="column"
