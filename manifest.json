@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Do Browser Extension",
-  "version": "0.0.1",
-  "description": "A browser extension that shows your date of birth and age",
+  "name": "Priority",
+  "version": "0.1.0",
+  "description": "Top priority task at a glance in your new tab page",
   "chrome_url_overrides": {
     "newtab": "index.html"
   }

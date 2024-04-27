@@ -87,8 +87,16 @@ function Priority() {
                   type="text"
                   maxLength={100}
                   defaultValue={newPriority}
+                  autoFocus
                   onChange={(e) => {
                     setNewPriority(e.target.value.trim());
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      if (newPriority.trim().length > 0) {
+                        onSubmit();
+                      }
+                    }
                   }}
                 />
               </Box>
