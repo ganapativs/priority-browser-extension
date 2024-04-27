@@ -37,22 +37,32 @@
   transform: rotate(35deg);
 }
 
-.footer {
+.header {
   position: fixed;
   text-align: center;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   padding: var(--space-4);
   color: var(--gray-1);
   font-size: var(--font-size-4);
   background: var(--color-background);
+}
+
+.header-links {
   opacity: 0.3;
   transition: opacity 0.25s ease-in;
 }
 
-.footer:hover,
-.footer:focus,
-.footer:focus-visible {
+.header:hover .header-links {
   opacity: 1;
+}
+
+.header-logo-full {
+  clip-path: polygon(0 0, 20px 0, 20px 100%, 0% 100%);
+  transition: all 0.25s 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.header:hover .header-logo-full {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }

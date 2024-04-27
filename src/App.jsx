@@ -1,10 +1,9 @@
-// import viteLogo from "/vite.svg";
 import { Box, Flex, Container, Theme } from "@radix-ui/themes";
 import "./app.css";
 import MemoizedDate from "./components/Date";
 import Age from "./components/Age";
 import Priority from "./components/Priority";
-import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { useState } from "react";
 
 function App() {
@@ -34,6 +33,7 @@ function App() {
         overflow="hidden"
       >
         <Container height="100vh" maxWidth="1700px" minWidth="850px">
+          <Header theme={theme} onThemeChange={onThemeChange} />
           {/* https://stackoverflow.com/a/33148425/2627022 */}
           <Flex
             direction="column"
@@ -65,7 +65,6 @@ function App() {
               <Priority />
             </Box>
           </Flex>
-          <Footer theme={theme} onThemeChange={onThemeChange} />
         </Container>
       </Box>
     </Theme>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50"
+    aria-hidden="true" role="img" height="50" viewBox=" 0 0 77.43362831858407 77.43362831858407">
+    <defs id="svg-def">
+        <linearGradient id="svg-gradient" x1="0%" y1="0%" x2="100%" y2="0%"
+            gradientTransform="rotate(45)">
+            <stop stop-color="#bde56d" offset=" 0" />
+            <stop stop-color="#0BD9B6" offset=" 1" />
+        </linearGradient>
+    </defs>
+    <g transform="translate(0, 0) scale(0.7743362831858407)"
+        fill="url(#svg-gradient)">
+        <path xmlns="http://www.w3.org/2000/svg"
+            d="M50,0C22.386,0,0,22.386,0,50s22.386,50,50,50s50-22.386,50-50S77.614,0,50,0z M50,14.156  c19.799,0,35.844,16.044,35.844,35.844c0,19.799-16.045,35.844-35.844,35.844c-19.799,0-35.844-16.045-35.844-35.844  C14.156,30.201,30.201,14.156,50,14.156z M50,20.125c-16.505,0-29.875,13.37-29.875,29.875S33.495,79.875,50,79.875  S79.875,66.505,79.875,50S66.505,20.125,50,20.125z M50,29.75c11.178,0,20.25,9.072,20.25,20.25S61.178,70.25,50,70.25  S29.75,61.178,29.75,50S38.822,29.75,50,29.75z" />
+    </g>
+</svg>
