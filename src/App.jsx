@@ -61,7 +61,7 @@ function App() {
                 </Flex>
               </Box>
             </Flex>
-            <Box mt="4" mb="8">
+            <Box mt="4" mb="8" minWidth="600px" width="100%">
               <Priority />
             </Box>
           </Flex>
