@@ -7,15 +7,35 @@ import Header from "./components/Header";
 import { useState } from "react";
 
 function App() {
+  const [monochrome, setMonochrome] = useState(() => {
+    const stored = localStorage.getItem("monochrome");
+    if (stored) return stored === "true";
+    return false;
+  });
   const [theme, setTheme] = useState(() => {
     const stored = localStorage.getItem("theme");
     if (stored) return stored;
     return "dark";
   });
+  const [visibleItems, setVisibleItems] = useState(() => {
+    const stored = localStorage.getItem("items");
+    if (stored) return JSON.parse(stored);
+    return ["date", "age"];
+  });
 
   function onThemeChange(theme) {
     localStorage.setItem("theme", theme);
     setTheme(theme);
+  }
+
+  function onMonochromeChange(monochrome) {
+    localStorage.setItem("monochrome", monochrome === true);
+    setMonochrome(monochrome);
+  }
+
+  function onVisibleItemsChange(items) {
+    localStorage.setItem("items", JSON.stringify(items));
+    setVisibleItems(items);
   }
 
   return (
@@ -24,6 +44,7 @@ function App() {
       grayColor="slate"
       radius="full"
       appearance={theme}
+      panelBackground="translucent"
     >
       <Box
         height="100vh"
@@ -33,7 +54,14 @@ function App() {
         overflow="hidden"
       >
         <Container height="100vh" maxWidth="1700px" minWidth="850px">
-          <Header theme={theme} onThemeChange={onThemeChange} />
+          <Header
+            theme={theme}
+            onThemeChange={onThemeChange}
+            monochrome={monochrome}
+            onMonochromeChange={onMonochromeChange}
+            visibleItems={visibleItems}
+            onVisibleItemsChange={onVisibleItemsChange}
+          />
           {/* https://stackoverflow.com/a/33148425/2627022 */}
           <Flex
             direction="column"

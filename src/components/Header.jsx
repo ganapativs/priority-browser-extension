@@ -1,14 +1,34 @@
-import { Flex, IconButton, Link, Separator, Tooltip } from "@radix-ui/themes";
+/* eslint-disable react/prop-types */
+import {
+  Box,
+  CheckboxCards,
+  Flex,
+  IconButton,
+  Link,
+  Popover,
+  RadioCards,
+  Separator,
+  Text,
+  Tooltip,
+} from "@radix-ui/themes";
 import {
   GitHubLogoIcon,
   SunIcon,
   MoonIcon,
   TwitterLogoIcon,
+  GearIcon,
+  MixIcon,
 } from "@radix-ui/react-icons";
 import fullLogo from "/logo-full.svg";
 
-// eslint-disable-next-line react/prop-types
-const Header = ({ theme, onThemeChange }) => {
+const Header = ({
+  theme,
+  onThemeChange,
+  monochrome,
+  onMonochromeChange,
+  visibleItems,
+  onVisibleItemsChange,
+}) => {
   return (
     <header className="header">
       <Flex align="center" gap="4" justify="left">
@@ -29,19 +49,68 @@ const Header = ({ theme, onThemeChange }) => {
           className="header-links"
         >
           <Flex align="center" gap="1">
-            <Tooltip
-              content={`Current theme: ${theme}. Click to change the theme.`}
-            >
-              <IconButton
-                variant="soft"
-                size="1"
-                onClick={() =>
-                  onThemeChange(theme === "dark" ? "light" : "dark")
-                }
-              >
-                {theme === "dark" ? <MoonIcon /> : <SunIcon />}
-              </IconButton>
-            </Tooltip>
+            <Popover.Root>
+              <Popover.Trigger>
+                <IconButton variant="soft" size="1">
+                  <GearIcon />
+                </IconButton>
+              </Popover.Trigger>
+              <Popover.Content width="250px" size="1">
+                <Flex gap="2" direction="column" align="center">
+                  <Box width="100%">
+                    <Box mb="2">
+                      <Text size="4" color="gold">
+                        <Flex align="center" gap="1">
+                          {theme === "dark" ? <MoonIcon /> : <SunIcon />} Theme
+                        </Flex>
+                      </Text>
+                    </Box>
+                    <RadioCards.Root
+                      size="1"
+                      columns="2"
+                      color="gold"
+                      defaultValue={`${theme}${monochrome ? "-mono" : ""}`}
+                      onValueChange={(value) => {
+                        const [newTheme, newMonochrome] = value.split("-");
+                        onThemeChange(newTheme);
+                        onMonochromeChange(newMonochrome === "mono");
+                      }}
+                    >
+                      <RadioCards.Item value="dark">Dark</RadioCards.Item>
+                      <RadioCards.Item value="dark-mono">
+                        Dark Mono
+                      </RadioCards.Item>
+                      <RadioCards.Item value="light">Light</RadioCards.Item>
+                      <RadioCards.Item value="light-mono">
+                        Light Mono
+                      </RadioCards.Item>
+                    </RadioCards.Root>
+                    <Box mt="4">
+                      <Box mb="2">
+                        <Text size="4" color="gold">
+                          <Flex align="center" gap="1">
+                            <MixIcon /> Visibility
+                          </Flex>
+                        </Text>
+                      </Box>
+                      <CheckboxCards.Root
+                        defaultValue={visibleItems}
+                        size="1"
+                        columns="2"
+                        onValueChange={(values) => {
+                          onVisibleItemsChange(values);
+                        }}
+                      >
+                        <CheckboxCards.Item value="date">
+                          Date
+                        </CheckboxCards.Item>
+                        <CheckboxCards.Item value="age">Age</CheckboxCards.Item>
+                      </CheckboxCards.Root>
+                    </Box>
+                  </Box>
+                </Flex>
+              </Popover.Content>
+            </Popover.Root>
           </Flex>
           <Separator orientation="vertical" color="gray" size="1" />
           <Link

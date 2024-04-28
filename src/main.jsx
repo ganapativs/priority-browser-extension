@@ -23,7 +23,6 @@ Promise.all([
 /**
  * TODO
  * analytics?
- * bmc
  * theme monochrome
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
