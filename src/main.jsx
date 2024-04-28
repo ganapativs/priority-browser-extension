@@ -1,3 +1,6 @@
+// Helpful links
+// Logo - https://looka[dot]com/editor/181704982
+// Web store screenshots - https://hotpot.ai/templates/chrome-screenshot
 import React from "react";
 import ReactDOM from "react-dom/client";
 import FontFaceObserver from "fontfaceobserver";
@@ -22,12 +25,9 @@ Promise.all([
 
 /**
  * TODO
- * - Logo
  * analytics?
  * bmc
  * theme monochrome
- * - Add favicon
- * - Add icons
  */
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

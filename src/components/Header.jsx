@@ -1,18 +1,10 @@
-import {
-  Flex,
-  IconButton,
-  Link,
-  Separator,
-  Text,
-  Tooltip,
-} from "@radix-ui/themes";
+import { Flex, IconButton, Link, Separator, Tooltip } from "@radix-ui/themes";
 import {
   GitHubLogoIcon,
   SunIcon,
   MoonIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-// https://looka[dot]com/editor/181704982
 import fullLogo from "/logo-full.svg";
 
 // eslint-disable-next-line react/prop-types
