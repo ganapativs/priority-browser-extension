@@ -9,7 +9,7 @@ Priority Chrome Extension is a simple yet powerful chrome new tab page extension
 - **Date and Time**: Never lose track of the current date and time. The extension keeps you updated with the precise date and time.
 - **Age Counter**: Simply enter your date of birth, and the extension will calculate and display your current age.
 - **Top Priority Task**: Stay on top of your most important task by setting a priority task. The extension will display this task prominently, ensuring you never forget about it.
-- **Beautiful UI**: The extension boasts a sleek and modern user interface, blending seamlessly with your Chrome browser.
+- **Beautiful UI**: The extension boasts a sleek and modern user interface with support for dark mode and monochrome mode, blending seamlessly with your Chrome browser.
 
 ## Installation
 

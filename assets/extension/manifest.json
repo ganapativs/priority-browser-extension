@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Priority",
   "version": "0.2.0",
-  "description": "Productivity extension to focus on your top priority task.",
+  "description": "Productivity extension to focus on your top priority task in new tab page.",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
