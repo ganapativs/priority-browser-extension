@@ -21,24 +21,37 @@ import {
   MixIcon,
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
-import fullLogo from "/logo-full.svg";
+import LogoFull from "./Logo";
+import { useContext } from "react";
+import { PreferenceContext } from "./PreferenceManager";
 
-const Header = ({ preference }) => {
+const Header = () => {
   const {
     theme,
     monochrome,
     items,
     onChange: onPreferenceChange = () => {},
-  } = preference;
+  } = useContext(PreferenceContext);
+
   return (
     <header className="header">
       <Flex align="center" gap="4" justify="left">
-        <img
+        {/* <img
           src={fullLogo}
           alt="Priority Logo"
           height="20px"
           draggable="false"
           className="header-logo-full"
+        /> */}
+        <LogoFull
+          height="24px"
+          className="header-logo-full"
+          {...(monochrome
+            ? {
+                fillPrimary: "var(--accent-a11)",
+                fillSecondary: "var(--accent-a11)",
+              }
+            : {})}
         />
         <Flex
           flexGrow="1"
@@ -113,7 +126,7 @@ const Header = ({ preference }) => {
                     </Box>
                     <Box mt="4" align="center">
                       <Button
-                        color="orange"
+                        color={monochrome ? "gold" : "orange"}
                         variant="ghost"
                         size="2"
                         onClick={() => {
@@ -135,7 +148,11 @@ const Header = ({ preference }) => {
               </Popover.Content>
             </Popover.Root>
           </Flex>
-          <Separator orientation="vertical" color="gray" size="1" />
+          <Separator
+            orientation="vertical"
+            color={monochrome ? "gold" : "gray"}
+            size="1"
+          />
           <Link
             href="https://github.com/ganapativs/priority-browser-extension?ref=priority-browser-extension"
             target="_blank"
@@ -148,7 +165,11 @@ const Header = ({ preference }) => {
               </Flex>
             </Tooltip>
           </Link>
-          <Separator orientation="vertical" color="gray" size="1" />
+          <Separator
+            orientation="vertical"
+            color={monochrome ? "gold" : "gray"}
+            size="1"
+          />
           <Link
             href="https://x.com/ganapativs?ref=priority-browser-extension"
             target="_blank"

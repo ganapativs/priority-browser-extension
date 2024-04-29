@@ -1,11 +1,13 @@
 import { Box, Flex, Text } from "@radix-ui/themes";
-import { memo, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { formatAMPM, readableDate } from "./utils";
 import { useInterval } from "./hooks";
+import { PreferenceContext } from "./PreferenceManager";
 
 // eslint-disable-next-line react/prop-types
 function RenderDate({ centerMode }) {
   const [date, setDate] = useState(new Date());
+  const { monochrome } = useContext(PreferenceContext);
 
   useInterval(() => {
     setDate(new Date());
@@ -25,7 +27,7 @@ function RenderDate({ centerMode }) {
         <Text
           weight="bold"
           size="9"
-          color="teal"
+          color={monochrome ? "gold" : "teal"}
           className="font-size-10 line-height-10"
         >
           {formattedTime.hour.toString()}:
@@ -43,20 +45,20 @@ function RenderDate({ centerMode }) {
         >
           {formattedTime.seconds.toString().padStart(2, "0")}
         </Text> */}
-        <Text weight="bold" size="8" color="teal">
+        <Text weight="bold" size="8" color={monochrome ? "gold" : "teal"}>
           {formattedTime.ampm}
         </Text>
       </Box>
       <Box py="3">
         <Flex gap="3" align="center" justify={centerMode ? "center" : "left"}>
-          <Text weight="light" size="8" color="gray">
+          <Text weight="light" size="8" color={monochrome ? "gold" : "gray"}>
             {formattedTime.currentDayOfWeek},
           </Text>{" "}
-          <Text weight="light" size="8" color="gray">
+          <Text weight="light" size="8" color={monochrome ? "gold" : "gray"}>
             {formattedDate.day}
             {formattedDate.nth}
           </Text>{" "}
-          <Text weight="light" size="8" color="gray">
+          <Text weight="light" size="8" color={monochrome ? "gold" : "gray"}>
             {formattedDate.month}
             {/* {formattedDate.year} */}
           </Text>

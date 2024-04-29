@@ -1,7 +1,8 @@
 import { Box, Button, Callout, Flex, Text, TextField } from "@radix-ui/themes";
 import { InfoCircledIcon, CrossCircledIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useInterval } from "./hooks";
+import { PreferenceContext } from "./PreferenceManager";
 
 function validateDate(day, month, year) {
   let monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -62,6 +63,7 @@ function Age({ centerMode }) {
     return calculateAge(dob);
   });
   const [animate, setAnimate] = useState(false);
+  const { monochrome } = useContext(PreferenceContext);
 
   useInterval(() => {
     const computedAge = calculateAge(dob);
@@ -113,7 +115,7 @@ function Age({ centerMode }) {
               <Text
                 weight="bold"
                 size="9"
-                color="lime"
+                color={monochrome ? "gold" : "lime"}
                 className="font-size-10 line-height-10"
               >
                 {age.year.toString().padStart(2, "0")}
@@ -121,7 +123,7 @@ function Age({ centerMode }) {
               <Text
                 weight="light"
                 size="8"
-                color="lime"
+                color={monochrome ? "gold" : "lime"}
                 style={{
                   position: "absolute",
                   bottom: "calc(var(--space-7) / 8)",
@@ -136,14 +138,24 @@ function Age({ centerMode }) {
         <Box style={{ minHeight: 114 }}>
           <>
             {hasError ? (
-              <Callout.Root size="1" variant="surface" mb="4" color="orange">
+              <Callout.Root
+                size="1"
+                variant="surface"
+                mb="4"
+                color={monochrome ? "gold" : "orange"}
+              >
                 <Callout.Icon>
                   <CrossCircledIcon />
                 </Callout.Icon>
                 <Callout.Text>Invalid date of birth</Callout.Text>
               </Callout.Root>
             ) : (
-              <Callout.Root size="1" variant="surface" mb="4" color="lime">
+              <Callout.Root
+                size="1"
+                variant="surface"
+                mb="4"
+                color={monochrome ? "gold" : "lime"}
+              >
                 <Callout.Icon>
                   <InfoCircledIcon />
                 </Callout.Icon>
@@ -156,7 +168,7 @@ function Age({ centerMode }) {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="lime"
+                  color={monochrome ? "gold" : "lime"}
                   size="3"
                   placeholder="Day"
                   type="number"
@@ -180,7 +192,7 @@ function Age({ centerMode }) {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="lime"
+                  color={monochrome ? "gold" : "lime"}
                   size="3"
                   placeholder="Month"
                   type="number"
@@ -204,7 +216,7 @@ function Age({ centerMode }) {
               <Box>
                 <TextField.Root
                   variant="soft"
-                  color="lime"
+                  color={monochrome ? "gold" : "lime"}
                   size="3"
                   placeholder="Year"
                   type="number"
@@ -233,7 +245,7 @@ function Age({ centerMode }) {
                 <Button
                   variant="solid"
                   size="3"
-                  color="lime"
+                  color={monochrome ? "gold" : "lime"}
                   disabled={
                     !inputFields.day || !inputFields.month || !inputFields.year
                   }
@@ -247,7 +259,7 @@ function Age({ centerMode }) {
         </Box>
       )}
       <Box py="3" align={centerMode ? "center" : "left"}>
-        <Text weight="light" size="8" color="gray">
+        <Text weight="light" size="8" color={monochrome ? "gold" : "gray"}>
           Age
         </Text>
       </Box>

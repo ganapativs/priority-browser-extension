@@ -9,7 +9,8 @@ import {
   Text,
   TextField,
 } from "@radix-ui/themes";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { PreferenceContext } from "./PreferenceManager";
 
 function Priority() {
   const [priority, setPriority] = useState(() => {
@@ -19,6 +20,7 @@ function Priority() {
   });
   const [newPriority, setNewPriority] = useState(null);
   const [animate, setAnimate] = useState(false);
+  const { monochrome } = useContext(PreferenceContext);
 
   function onSubmit() {
     setAnimate(true);
@@ -42,12 +44,16 @@ function Priority() {
             </Text>
           </Box>
           <Flex direction="row" gap="5" align="center" justify="center">
-            <Badge size="3" color="crimson" variant="outline">
+            <Badge
+              size="3"
+              color={monochrome ? "gold" : "crimson"}
+              variant="outline"
+            >
               <LightningBoltIcon />
               Top priority
             </Badge>
             <Button
-              color="gray"
+              color={monochrome ? "gold" : "gray"}
               variant="surface"
               size="2"
               onClick={editPriority}
@@ -81,7 +87,7 @@ function Priority() {
               <Box flexGrow="1" flexShrink="1" flexBasis="50%">
                 <TextField.Root
                   variant="soft"
-                  color="gray"
+                  color={monochrome ? "gold" : "gray"}
                   size="3"
                   placeholder="Eg: Learn about Machine Learning"
                   type="text"

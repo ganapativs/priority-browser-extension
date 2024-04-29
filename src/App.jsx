@@ -33,7 +33,7 @@ function App() {
         overflow="hidden"
       >
         <Container height="100vh" maxWidth="1700px" minWidth="850px">
-          <Header preference={preference} />
+          <Header />
           {/* https://stackoverflow.com/a/33148425/2627022 */}
           <Flex
             direction="column"
