@@ -8,7 +8,7 @@
 
 Priority Chrome Extension is a simple yet powerful chrome new tab page extension that helps you stay focused and organized by providing essential information and a top priority task right on your new browser tab.
 
-![Priority Chrome Extension](/assets/preview-gradient.png)
+![Priority Chrome Extension](/assets/preview-new-tab.png)
 
 ## Features
 
