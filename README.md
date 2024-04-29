@@ -13,7 +13,7 @@ Priority Chrome Extension is a simple yet powerful chrome new tab page extension
 
 ## Installation
 
-1. Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/priority-chrome-extension/eppaggdanbdjpkjoinaclhanedkdijcd).
+1. Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/eppaggdanbdjpkjoinaclhanedkdijcd).
 2. Click the "Add to Chrome" button.
 3. Once installed, the Priority Chrome Extension will be your default new tab page.
 
