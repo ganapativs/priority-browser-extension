@@ -27,11 +27,7 @@ We welcome contributions from the community! If you'd like to contribute to the 
 4. Push your changes to your forked repository.
 5. Submit a pull request to the main repository.
 
-## Future Plans
-
-- **Customization**: While the extension currently provides a fixed set of features, future updates may include customization options for the UI, font styles, and color schemes.
-
-We hope you find the Priority Chrome Extension useful and enjoyable to use. If you have any suggestions or encounter any issues, please don't hesitate to reach out to us or submit an issue on the GitHub repository.
+We hope you find the Priority Chrome Extension useful and enjoyable to use. If you have any suggestions or encounter any issues, please don't hesitate to reach out to me on [X](https://twitter.com/ganapativs) or submit an issue on the GitHub repository.
 
 ## License
 
