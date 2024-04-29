@@ -3,7 +3,8 @@ import { memo, useState } from "react";
 import { formatAMPM, readableDate } from "./utils";
 import { useInterval } from "./hooks";
 
-function RenderDate() {
+// eslint-disable-next-line react/prop-types
+function RenderDate({ centerMode }) {
   const [date, setDate] = useState(new Date());
 
   useInterval(() => {
@@ -15,7 +16,12 @@ function RenderDate() {
 
   return (
     <Box>
-      <Box py="3" position={"relative"} className="schibsted-grotesk">
+      <Box
+        py="3"
+        position={"relative"}
+        className="schibsted-grotesk"
+        align={centerMode ? "center" : "left"}
+      >
         <Text
           weight="bold"
           size="9"
@@ -42,7 +48,7 @@ function RenderDate() {
         </Text>
       </Box>
       <Box py="3">
-        <Flex gap="3" align="center">
+        <Flex gap="3" align="center" justify={centerMode ? "center" : "left"}>
           <Text weight="light" size="8" color="gray">
             {formattedTime.currentDayOfWeek},
           </Text>{" "}

@@ -42,9 +42,9 @@ function Priority() {
             </Text>
           </Box>
           <Flex direction="row" gap="5" align="center" justify="center">
-            <Badge size="3" color="amber" variant="soft">
+            <Badge size="3" color="crimson" variant="outline">
               <LightningBoltIcon />
-              One priority at a time
+              Top priority
             </Badge>
             <Button
               color="gray"

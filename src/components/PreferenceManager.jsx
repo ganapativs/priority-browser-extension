@@ -7,17 +7,23 @@ export function withPreferenceManager(Component) {
     const [monochrome, setMonochrome] = useState(() => {
       const stored = localStorage.getItem("monochrome");
       if (stored) return stored === "true";
-      return false;
+      const defaultValue = false;
+      localStorage.setItem("monochrome", defaultValue);
+      return defaultValue;
     });
     const [theme, setTheme] = useState(() => {
       const stored = localStorage.getItem("theme");
       if (stored) return stored;
-      return "dark";
+      const defaultValue = "dark";
+      localStorage.setItem("theme", defaultValue);
+      return defaultValue;
     });
     const [visibleItems, setVisibleItems] = useState(() => {
       const stored = localStorage.getItem("items");
       if (stored) return JSON.parse(stored);
-      return ["date", "age"];
+      const defaultValue = ["date", "age"];
+      localStorage.setItem("items", JSON.stringify(defaultValue));
+      return defaultValue;
     });
 
     function onPreferenceChange(type, value) {

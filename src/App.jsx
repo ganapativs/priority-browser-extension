@@ -12,6 +12,10 @@ import {
 
 function App() {
   const preference = useContext(PreferenceContext);
+  const { items = [] } = preference;
+  const showDate = items.includes("date");
+  const showAge = items.includes("age");
+  const hasMultipleItems = showDate && showAge;
 
   return (
     <Theme
@@ -39,23 +43,48 @@ function App() {
             justify="center"
           >
             <Flex gap="9" minWidth="850px">
-              <Flex
-                flexGrow="1"
-                flexShrink="1"
-                flexBasis="50%"
-                p="4"
-                align="center"
-              >
-                <Flex align="center" justify="center" width="385px">
-                  <MemoizedDate />
+              {showDate ? (
+                <Flex
+                  flexGrow="1"
+                  flexShrink="1"
+                  flexBasis="50%"
+                  p="4"
+                  align="center"
+                  {...(!hasMultipleItems
+                    ? { justify: "center", flexBasis: "100%" }
+                    : {})}
+                >
+                  <Flex align="center" justify="center" width="385px">
+                    <MemoizedDate centerMode={!hasMultipleItems} />
+                  </Flex>
                 </Flex>
-              </Flex>
-              <div className="cross-divider"></div>
-              <Box flexGrow="1" flexShrink="1" flexBasis="50%" p="4">
-                <Flex align="center" justify="end" width="385px">
-                  <Age />
-                </Flex>
-              </Box>
+              ) : null}
+              {hasMultipleItems ? <div className="cross-divider"></div> : null}
+              {showAge ? (
+                <Box
+                  flexGrow="1"
+                  flexShrink="1"
+                  flexBasis="50%"
+                  p="4"
+                  {...(!hasMultipleItems
+                    ? { justify: "center", align: "center", flexBasis: "100%" }
+                    : {})}
+                >
+                  <Flex
+                    align="center"
+                    justify="end"
+                    width="385px"
+                    {...(!hasMultipleItems
+                      ? {
+                          justify: "center",
+                        }
+                      : {})}
+                    style={hasMultipleItems ? {} : { textAlign: "left" }}
+                  >
+                    <Age centerMode={!hasMultipleItems} />
+                  </Flex>
+                </Box>
+              ) : null}
             </Flex>
             <Box mt="4" mb="8" minWidth="600px" width="100%">
               <Priority />

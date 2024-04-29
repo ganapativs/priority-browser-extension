@@ -45,7 +45,8 @@ function validateInputMaxValue(e, maxValue) {
   }
 }
 
-function Age() {
+// eslint-disable-next-line react/prop-types
+function Age({ centerMode }) {
   const [dob, setDob] = useState(() => {
     const stored = localStorage.getItem("dob");
     if (stored) return parseInt(stored); // epoch time
@@ -99,9 +100,16 @@ function Age() {
           py="3"
           className={animate ? "fadeIn" : ""}
           style={{ minWidth: 300, minHeight: 114 }}
+          align={centerMode ? "center" : "left"}
         >
           {age ? (
-            <Box className="schibsted-grotesk">
+            <Box
+              className="schibsted-grotesk"
+              style={{
+                position: "relative",
+                transform: centerMode ? "translateX(-25%)" : "",
+              }}
+            >
               <Text
                 weight="bold"
                 size="9"
@@ -110,7 +118,15 @@ function Age() {
               >
                 {age.year.toString().padStart(2, "0")}
               </Text>{" "}
-              <Text weight="light" size="8" color="lime">
+              <Text
+                weight="light"
+                size="8"
+                color="lime"
+                style={{
+                  position: "absolute",
+                  bottom: "calc(var(--space-7) / 8)",
+                }}
+              >
                 .{age.milliseconds.toString().padStart(2, "0")}
               </Text>
             </Box>
@@ -230,7 +246,7 @@ function Age() {
           </>
         </Box>
       )}
-      <Box py="3">
+      <Box py="3" align={centerMode ? "center" : "left"}>
         <Text weight="light" size="8" color="gray">
           Age
         </Text>
