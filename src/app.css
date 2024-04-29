@@ -48,7 +48,7 @@
 
 .header-links {
   opacity: 0.3;
-  transition: opacity 0.25s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 
 .header:hover .header-links {
@@ -57,7 +57,7 @@
 
 .header-logo-full {
   clip-path: polygon(0 0, 24px 0, 24px 100%, 0% 100%);
-  transition: all 0.25s 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.1s 0.1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .header:hover .header-logo-full {
