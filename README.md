@@ -3,6 +3,7 @@
 <div align="center">
   <div>&nbsp;</div>
   <img src="./assets/logo-full.png" width="400"/>
+  <div>&nbsp;</div>
 </div>
 
 Priority Chrome Extension is a simple yet powerful chrome new tab page extension that helps you stay focused and organized by providing essential information and a top priority task right on your new browser tab.
