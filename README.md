@@ -19,7 +19,7 @@ Priority Chrome Extension is a simple yet powerful chrome new tab page extension
 
 ## Contributing
 
-We welcome contributions from the community! If you'd like to contribute to the Priority Chrome Extension, please follow these steps:
+If you'd like to contribute to the Priority Chrome Extension, please follow these steps:
 
 1. Fork the repository on GitHub.
 2. Create a new branch for your feature or bug fix.
@@ -27,7 +27,7 @@ We welcome contributions from the community! If you'd like to contribute to the 
 4. Push your changes to your forked repository.
 5. Submit a pull request to the main repository.
 
-We hope you find the Priority Chrome Extension useful and enjoyable to use. If you have any suggestions or encounter any issues, please don't hesitate to reach out to me on [X](https://twitter.com/ganapativs) or submit an issue on the GitHub repository.
+I hope you find the Priority Chrome Extension useful and enjoyable to use. If you have any suggestions or encounter any issues, please don't hesitate to reach out to me on [X](https://twitter.com/ganapativs) or submit an issue on the GitHub repository.
 
 ## License
 
