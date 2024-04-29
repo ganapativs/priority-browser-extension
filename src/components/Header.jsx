@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import {
   Box,
+  Button,
   CheckboxCards,
   Flex,
   IconButton,
@@ -18,17 +19,17 @@ import {
   TwitterLogoIcon,
   GearIcon,
   MixIcon,
+  ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
 import fullLogo from "/logo-full.svg";
 
-const Header = ({
-  theme,
-  onThemeChange,
-  monochrome,
-  onMonochromeChange,
-  visibleItems,
-  onVisibleItemsChange,
-}) => {
+const Header = ({ preference }) => {
+  const {
+    theme,
+    monochrome,
+    items,
+    onChange: onPreferenceChange = () => {},
+  } = preference;
   return (
     <header className="header">
       <Flex align="center" gap="4" justify="left">
@@ -72,8 +73,11 @@ const Header = ({
                       defaultValue={`${theme}${monochrome ? "-mono" : ""}`}
                       onValueChange={(value) => {
                         const [newTheme, newMonochrome] = value.split("-");
-                        onThemeChange(newTheme);
-                        onMonochromeChange(newMonochrome === "mono");
+                        onPreferenceChange("theme", newTheme);
+                        onPreferenceChange(
+                          "monochrome",
+                          newMonochrome === "mono"
+                        );
                       }}
                     >
                       <RadioCards.Item value="dark">Dark</RadioCards.Item>
@@ -94,11 +98,11 @@ const Header = ({
                         </Text>
                       </Box>
                       <CheckboxCards.Root
-                        defaultValue={visibleItems}
+                        defaultValue={items}
                         size="1"
                         columns="2"
                         onValueChange={(values) => {
-                          onVisibleItemsChange(values);
+                          onPreferenceChange("items", values);
                         }}
                       >
                         <CheckboxCards.Item value="date">
@@ -106,6 +110,25 @@ const Header = ({
                         </CheckboxCards.Item>
                         <CheckboxCards.Item value="age">Age</CheckboxCards.Item>
                       </CheckboxCards.Root>
+                    </Box>
+                    <Box mt="4" align="center">
+                      <Button
+                        color="orange"
+                        variant="ghost"
+                        size="2"
+                        onClick={() => {
+                          onPreferenceChange("reset");
+                        }}
+                      >
+                        <Tooltip
+                          content={`This will clear the extension's data and preferences`}
+                        >
+                          <Flex align="center" gap="1">
+                            <ExclamationTriangleIcon />
+                            Reset extension
+                          </Flex>
+                        </Tooltip>
+                      </Button>
                     </Box>
                   </Box>
                 </Flex>

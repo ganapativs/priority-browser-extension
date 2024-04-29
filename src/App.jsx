@@ -4,46 +4,18 @@ import MemoizedDate from "./components/Date";
 import Age from "./components/Age";
 import Priority from "./components/Priority";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useContext } from "react";
+import { PreferenceContext, withPreferenceManager } from "./PreferenceManager";
 
 function App() {
-  const [monochrome, setMonochrome] = useState(() => {
-    const stored = localStorage.getItem("monochrome");
-    if (stored) return stored === "true";
-    return false;
-  });
-  const [theme, setTheme] = useState(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored) return stored;
-    return "dark";
-  });
-  const [visibleItems, setVisibleItems] = useState(() => {
-    const stored = localStorage.getItem("items");
-    if (stored) return JSON.parse(stored);
-    return ["date", "age"];
-  });
-
-  function onThemeChange(theme) {
-    localStorage.setItem("theme", theme);
-    setTheme(theme);
-  }
-
-  function onMonochromeChange(monochrome) {
-    localStorage.setItem("monochrome", monochrome === true);
-    setMonochrome(monochrome);
-  }
-
-  function onVisibleItemsChange(items) {
-    localStorage.setItem("items", JSON.stringify(items));
-    setVisibleItems(items);
-  }
+  const preference = useContext(PreferenceContext);
 
   return (
     <Theme
       accentColor="gold"
       grayColor="slate"
       radius="full"
-      appearance={theme}
+      appearance={preference.theme}
       panelBackground="translucent"
     >
       <Box
@@ -54,14 +26,7 @@ function App() {
         overflow="hidden"
       >
         <Container height="100vh" maxWidth="1700px" minWidth="850px">
-          <Header
-            theme={theme}
-            onThemeChange={onThemeChange}
-            monochrome={monochrome}
-            onMonochromeChange={onMonochromeChange}
-            visibleItems={visibleItems}
-            onVisibleItemsChange={onVisibleItemsChange}
-          />
+          <Header preference={preference} />
           {/* https://stackoverflow.com/a/33148425/2627022 */}
           <Flex
             direction="column"
@@ -99,4 +64,6 @@ function App() {
   );
 }
 
-export default App;
+const AppComponent = withPreferenceManager(App);
+
+export default AppComponent;
