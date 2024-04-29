@@ -5,7 +5,10 @@ import Age from "./components/Age";
 import Priority from "./components/Priority";
 import Header from "./components/Header";
 import { useContext } from "react";
-import { PreferenceContext, withPreferenceManager } from "./PreferenceManager";
+import {
+  PreferenceContext,
+  withPreferenceManager,
+} from "./components/PreferenceManager";
 
 function App() {
   const preference = useContext(PreferenceContext);
