@@ -10,6 +10,8 @@ Priority Chrome Extension is a simple yet powerful chrome new tab page extension
 
 ![Priority Chrome Extension](/assets/preview-new-tab.png)
 
+[<img src="./.github/readme-images/chrome-webstore.png" alt="for Chrome" height="60px">](https://chromewebstore.google.com/detail/priority/eppaggdanbdjpkjoinaclhanedkdijcd) [<img src="./github/readme-images/firefox-addon.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/en-GB/firefox/addon/priority-new-tab/)
+
 ## Features
 
 - **Date and Time**: Never lose track of the current date and time. The extension keeps you updated with the precise date and time.
