@@ -8,9 +8,9 @@
 
 Priority Browser Extension is a simple yet powerful browser new tab page extension that helps you stay focused and organized by providing essential information and a top priority task right on your new browser tab.
 
-![Priority Browser Extension](/assets/preview-new-tab.png)
-
 [<img src="./.github/readme-images/chrome-webstore.png" alt="for Chrome" height="60px">](https://chromewebstore.google.com/detail/priority/eppaggdanbdjpkjoinaclhanedkdijcd) [<img src="./.github/readme-images/firefox-addon.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/en-GB/firefox/addon/priority-new-tab/) [<img src="./.github/readme-images/edge-addon.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/priority/ocmnliienajbbobpoeohnpdhjlnmkocp)
+
+![Priority Browser Extension](/assets/preview-new-tab.png)
 
 ## Features
 
